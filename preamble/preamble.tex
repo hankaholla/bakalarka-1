@@ -1,6 +1,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english]{babel} %premenovala som zo slovak na english
+\usepackage[english, slovak]{babel} %premenovala som zo slovak na english
 \usepackage[a4paper]{geometry}
 \usepackage[
     left = \glqq,% 
@@ -15,7 +15,7 @@
 \newcommand{\myName}[0] {Anna Hollá}
 \newcommand{\mySupervisor}[0] {doc. Ing. Vanda Benešová, PhD.}
 \newcommand{\myEvidenceNumber}[0] {FIIT-XXXX-XXXXX}
-\newcommand{\myDate}[0] {December 2020}
+\newcommand{\myDate}[0] {Január 2021}
 \newcommand{\myStudyProgram}[0] {Informatika}
 \newcommand{\myDegreeCourse}[0] {Informatika}
 \newcommand{\myInstitute}[0] {FIIT STU, Bratislava}
@@ -48,7 +48,15 @@
 
 %style=iso-numeric
 %style=authortitle-dw
-\usepackage[backend=bibtex,defernums=true]{biblatex}
+%zmenila som bibtex na biber
+\usepackage[
+    backend=biber,
+    style=iso-numeric,
+    defernums=true,
+    maxbibnames=4,
+    minbibnames=3,
+    maxcitenames=3,
+]{biblatex}
 \defbibheading{references}[References]{ 
   \chapter*{#1}
   \markboth{#1}{#1}
@@ -57,6 +65,7 @@
 %   \section*{#1}
 %   \markboth{#1}{#1}
 % }
+\typeout{}
 \bibliography{\myBibliography}
 
 

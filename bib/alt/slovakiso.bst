@@ -454,9 +454,9 @@ FUNCTION {format.names}
             'skip$
           if$
           namesleft #1 >
-            { "; " * t * }
+            { ", " * t * }
             {
-              ";" *
+              "," *
               s nameptr "{ll}" format.name$ duplicate$ "others" =
 %duplicate$
                { 't := }
@@ -497,9 +497,9 @@ FUNCTION {format.names.ed}
       nameptr #1 >
         {
           namesleft #1 >
-            { "; " * t * }
+            { ", " * t * }
             {
-              ";" *
+              "," *
               s nameptr "{ll}" format.name$ duplicate$ "others" =
                 { 't := }
                 { pop$ }
