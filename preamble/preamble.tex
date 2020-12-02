@@ -9,6 +9,9 @@
     rightsub = \grq%
 ]{dirtytalk}
 
+\usepackage{hyperref}
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref}
+
 % SETTINGS - NAMES
 \newcommand{\myTitle}[0] {Spracovanie obrazových medicínskych dát metódami počítačového videnia a hlbokých neurónových sietí}
 \newcommand{\myTitleEng}[0] {Medical image data processing using computer vision methods and deep neural networks}
@@ -38,13 +41,58 @@
 \newsavebox\mybox
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+
 \lhead{\nouppercase{\leftmark}}
-\chead{}
+% \chead{}
 \rhead{}
-\lfoot{}
+% \lfoot{}
 \cfoot{\thepage}
 \rfoot{}
 
+\usepackage{titlesec}
+% \titleformat{\chapter}%
+%   {\normalfont\bfseries\Huge}{\thechapter.}{10pt}{}
+% \newpagestyle{mystyle}{
+%   \sethead[][\thechapter.\enspace\chaptertitle][]{}{\thesection~\sectiontitle}{}
+% \setfoot{}{\thepage}{}}
+
+\titlespacing*{\chapter}
+{0pt}{-30pt}{30pt}
+\titlespacing*{\section}
+{0pt}{10pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{5pt}{0pt}
+
+\titleformat{\chapter}%
+  {\normalfont\bfseries\Huge}{\thechapter.}{10pt}{}
+
+% \makeatletter
+% \renewcommand{\@chapapp}{}
+% \makeatother
+
+
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
 
 %style=iso-numeric
 %style=authortitle-dw
@@ -57,6 +105,8 @@
     minbibnames=3,
     maxcitenames=3,
 ]{biblatex}
+\AtBeginBibliography{\renewcommand{\multinamedelim}{\addsemicolon\space}\renewcommand{\finalnamedelim}{\multinamedelim}}
+
 \defbibheading{references}[References]{ 
   \chapter*{#1}
   \markboth{#1}{#1}
