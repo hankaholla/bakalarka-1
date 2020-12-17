@@ -1,10 +1,32 @@
+
+\chapter{Deep learning}
+In this chapter we are going to introduce deep learning, methods of which are going to be implemented in our solution. We will introduce general principles and take a closer look on artificial neural networks, with main focus on convolutional neural networks. Lastly, the topic of interpretability and explainability of neural networks is discussed, with an emphasis on Layer-wise Relevance Propagation.
+
+Deep learning is a form of machine learning, which is a significant part of the scientific field known as artificial intelligence. Over the past decade, a remarkable progress has been made in application of machine learning systems in numerous fields of science as well as in everyday life \cite{longsurvey2018}. They are used in natural language processing, detection of objects in images or speech recognition. These systems thrive mainly because of growing amounts of available data and empowerment of fast GPU computing, both of which is important for their proper training. The usage of machine learning in medicine benefits primarily from ascending volume of digitalized patient data. In 2017 in the United States alone, 150 exabytes of medical data was generated and this number increases annually by approximately 47\% \cite{stanford2017}. With that said, deep learning systems are able to move from theory to practice and assists physician in hospitals and health centers. According to Stanford Medicine Health Trends Report of 2020 \cite{stanford2020} up to June 2019, the U.S. Food and Drug Administration had approved a total of 46 machine learning algorithms for medical purposes. As machine learning and its applications is still being explored, we can expect this number to further increase rapidly.
+
+Deep learning enables computational models, composed of several processing layers, to learn representations of data, which contain multiple levels of abstraction \cite{greekDeepLearning}. It allows computers to learn from experience and comprehend the world more like a human - as a hierarchy, where complicated concepts are composed of more simple ones. \cite{deeplearningbook} The conventional machine learning approach required a human expert to do a hand-crafted engineering to extract features from data prior to feeding it to a machine, which required much more time and resources. The key advantage of deep learning is that the features are learned by the machine automatically, thanks to data-driven approach throughout the learning process \cite{deeplearningHealthcare}. The results show, that  
+
+\section{Deep learning categorization}
+We distinguish several primary forms of machine learning, which can be applied to deep learning as well. The main two of them, which we will discuss in our work, are supervised and unsupervised learning. \cite{lecundeeplearning} These two forms differ mainly in whether labeled data, corresponding to the input data, is available for the training process.
+\subsection*{Supervised learning}
+Supervised learning  is the most frequently used form of machine learning. \cite{lecundeeplearning} As it's name suggests, systems which fall under this category, are trained under a certain form of supervision. During training after each prediction, we compute a function, which measures the error rate of the model. According to the computed value, the internal parameters of the machine are adjusted in order to minimise the error rate in future predictions. 
+\subsection*{Unsupervised learning} 
+
+
+\section{Deep neural networks}
+- ambition to mimic the functioning of human brain
+\subsection{Convolutional neural networks}
+\section{Interpretable neural networks}
+\subsection{Layer-Wise Relevance Propagation}
+
+
 \chapter{Overview of medical imaging}
 In this chapter we are going to present a brief overview of medical imaging. First we explore the history of this field, from the 1960s to the current state. Since the aim of this work is detection and classification, we provide a review of approaches to classification task. Lastly, for better understanding of the problematic and the dataset, brief survey of computed tomography is introduced.
 
 Medical imaging, also referred to as radiology, is the medical field which includes the production, as well as analysis and processing of medical image data \cite{diagnostic50years}. Medical professionals use methods of medical imaging, such as computed tomography (CT), magnetic resonance (MRI) or ultrasound, to depict various body parts for diagnostic purposes. With the arrival of digital era it became possible to scan and store significant amounts of medical images digitally. Over the last few decades, researchers have implemented systems to automate the analysis of medical images and it has become one of the main research subjects in the medical imaging field. 
 
 \section{Computer-aided diagnosis}
-Initially used approaches in the 1960s resided in construction of rule-based systems, which were able to solve only specific tasks \cite{surveyOnImageing}. These automated computer diagnosis systems brought the very concept of automated diagnostics. It was assumed, that they could potentially completely replace radiologists, believing that computers can achieve better performance at specific tasks, lacking the human-like disposition to making errors. However, with this goal, meeting the expectations on specificity and sensitivity of the systems was simply unachievable, since it required huge amounts of computational power, which was hard to ensure at that time. Thus, in the 1980s the direction of the medical imaging evolution was changed and another approach was presented - computer aided diagnosis (CAD) \cite{diagnostic50years}. The essence of CAD is to improve diagnostic accuracy by assisting radiologists and act as a "second opinion" \cite{surveyOnImageing, CADinmedicalImaging} to their own medical opinion. 
+Initially used approaches in the 1960s resided in construction of rule-based systems, which were able to solve only specific tasks \cite{surveyOnImageing}. These automated computer diagnosis systems brought the very concept of automated diagnostics. It was assumed, that they could potentially completely replace radiologists, believing that computers can achieve better performance at specific tasks, lacking the human-like disposition to making errors. However, with this goal, meeting the expectations on specificity and sensitivity of the systems was simply unattainable, since it required huge amounts of computational power, which was hard to ensure at that time. Thus, in the 1980s the direction of the medical imaging evolution was changed and another approach was presented - computer aided diagnosis (CAD) \cite{diagnostic50years}. The essence of CAD is to improve diagnostic accuracy by assisting radiologists and act as a "second opinion" \cite{surveyOnImageing, CADinmedicalImaging} to their own medical opinion. 
 The progress of technology and easier access to high-performance hardware components such as central processing units (CPU) and graphics processing units (GPU) at the end of 1990s resulted in supervised machine learning systems becoming very popular in CAD \cite{surveyOnImageing}. This was viable also due to increasing amount of available medical data (big data), making it possible to train such systems. It was a big step, shifting from completely human designed systems, to ones based on manual feature extraction and then trained automatically by computers. Feature extraction lies at the heart of a successful medical image analysis, therefore the next course of action was to apply machine learning in a self-taught manner for this task as well. We provide more detailed review on deep learning in chapter 4.
 
 % https://ieeexplore.ieee.org/abstract/document/7404017
@@ -19,7 +41,7 @@ The progress of technology and easier access to high-performance hardware compon
 
 
 \section{Computed tomography}
-Neuroimaging is crucial when aiming for an exact diagnosis of intracranial hemorrhage.  Taking into account its wide availability and non-invasive technique, computed tomography (CT) is most commonly used in detection of intracranial hemorrhage these days \cite{imagingICH}. Even though magnetic resonance imaging (MRI) has been proven to be more sensitive, CT is able to provide much faster results, which is critical when it comes to obtaining early assessment of the presence and extent of the bleeding \cite{imagingAfterBrainInjury}. The main principle of non-contrast computed tomography imaging resides in the fact, that different tissues of the human body can absorb different amounts of X-ray beams, which is refferd to as tissue density \cite{principlesOfCT}. The absorbed X-ray is being mapped into Hounsfield Units (HU). Resulting scans are formed from units of space within the patient's body called voxels. These units contain a three-dimensional (3D) information about the value of tissue density. Resulting 3D scans are studied using a method called windowing, which converts selected range of Hounsfield Units (HU) into values of grayscale (range between 0 and 255).  As a result, a two-dimensional cross sectional "slice" can be extracted from the 3D volume. The selected range is set by two different parameters: window width (WW) and window level (WL). Windowing enables radiologists to study different features and tissues by increasing the contrast, thus bringing forward the tissue of interest \cite{windowClassBiomArt}. The original CT pixel values, which are not in the selected range, are displayed either as black or white, as shown in Figure 3.1 .
+Neuroimaging is crucial when aiming for an exact diagnosis of intracranial hemorrhage.  Taking into account its wide availability and non-invasive technique, computed tomography (CT) is most commonly used in detection of intracranial hemorrhage these days \cite{imagingICH}. Even though magnetic resonance imaging (MRI) has been proven to be more sensitive, CT is able to provide much faster results, which is critical when it comes to obtaining early assessment of the presence and extent of the bleeding \cite{imagingAfterBrainInjury}. The main principle of non-contrast computed tomography imaging resides in the fact, that different tissues of the human body can absorb different amounts of X-ray beams, which is referred to as tissue density \cite{principlesOfCT}. The absorbed X-ray is being mapped into Hounsfield Units (HU). Resulting scans are formed from units of space within the patient's body called voxels. These units contain a three-dimensional (3D) information about the value of tissue density. Resulting 3D scans are studied using a method called windowing, which converts selected range of Hounsfield Units (HU) into values of grayscale (range between 0 and 255).  As a result, a two-dimensional cross sectional "slice" can be extracted from the 3D volume. The selected range is set by two different parameters: window width (WW) and window level (WL). Windowing enables radiologists to study different features and tissues by increasing the contrast, thus bringing forward the tissue of interest \cite{windowClassBiomArt}. The original CT pixel values, which are not in the selected range, are displayed either as black or white, as shown in Figure 3.1 .
 
 \begin{figure}[h]
 \begin{centering}
@@ -30,19 +52,3 @@ Neuroimaging is crucial when aiming for an exact diagnosis of intracranial hemor
 \end{figure}
 
 In detection of intracranial hemorrhage from head CT scans, blood and brain windows are the standard choice. Right after the appearance of hemorrhage, the area of the bleeding shows density values of 60 to 80 Hounsfield units (HU), and as it matures, the value increases up to 100 HU  \cite{principlesOfCT}, which can be visible in the scan slice with a correct setting of window width and window length.
-
-\chapter{Deep learning}
-\section{Deep neural networks}
-\subsection{Convolutional neural networks}
-\subsection{Layer-Wise Relevance Propagation}
-% \say{Here, a quotation is written and even some \say{nested} quotations 
-% are possible}
-
-% Figure \ref{fig:dynabook}:
-
-% \begin{figure}[h]
-% \begin{centering}
-% \includegraphics[width=5cm]{assets/images/Dynabook}
-% \par\end{centering}
-% \caption{Dynabook \label{fig:dynabook}}
-% \end{figure}
