@@ -9,28 +9,35 @@ Deep learning enables computational models, which are composed of several proces
 
 
 \section{Deep learning categorization}
-We distinguish several primary forms of machine learning, which can be applied to deep learning as well. The main two, which we will discuss in our work, are supervised and unsupervised learning.  \cite{lecundeeplearning} These two forms differ mainly in whether labeled data, corresponding to the input data, is available for the training process. There is a form of learning known as semi-supervised, which we, however, will not further discuss.
+We distinguish several primary forms of machine learning, which can be applied to deep learning as well. The main two, which we will discuss in our work, are supervised and unsupervised learning.  \cite{lecundeeplearning} These two forms differ mainly in whether labeled data, corresponding to the input data, is available for the training process. There is a form of learning known as semi-supervised, which we will, however, not further discuss.
 
 \subsection{Supervised learning}
-Supervised learning  is the most frequently used form of machine learning. \cite{lecundeeplearning} As it's name suggests, systems which fall under this category are trained under a certain form of supervision, which is present to guide the learning process. During training, a function is computed after each prediction, which measures the error rate of the model. According to the computed value, the internal parameters of the machine are adjusted in order to minimise the error rate in future predictions. These adjustable parameters are the model's most important component. A procedure which empowers nearly all deep learning models' error rate computation and ensures the parameter adjustment is called Stochastic gradient descent. We will discuss this procedure in more detail later in this chapter. Classification and regression are the two main tasks, which supervised learning attempts to solve \cite{kim2019deep}.
+Supervised learning  is the most frequently used form of machine learning \cite{lecundeeplearning}. As it's name suggests, systems which fall under this category are trained under a certain form of supervision, which is present to guide the learning process. During training, a function is computed after each prediction, which measures the error rate of the model. According to the computed value, the internal parameters of the machine are adjusted in order to minimise the error rate in future predictions. These adjustable parameters are the model's most important component. A procedure which empowers nearly all deep learning models' error rate computation and ensures the parameter adjustment is called Stochastic gradient descent. We will discuss this procedure in more detail later in this chapter. Classification and regression are the two main tasks, which supervised learning attempts to solve \cite{kim2019deep}. Our solution will work with labeled data, thus it falls under the category of supervised learning.
 
-\subsection{Unsupervised learning} The technique used by unsupervised learning algorithms is to learn important features contained in the training data without any supervision, as the name implies \cite{deeplearningbook}. Unsupervised learning model attempts to automatically discover the underlying information by extracting and analyzing useful features. This type of learning does not require the training data to be labeled with the correct answer. In this matter embodies it's biggest advantage - withdrawal from the need of labeled data, which would require manual intervention, and is not always easy to obtain. Although there is no distinct line between supervised and unsupervised concepts, we can say that the most widely used unsupervised learning algorithms are clustering, principal components analysis, anomaly detection or generative adversarial networks \cite{deeplearningbook, kim2019deep}.
+\subsection{Unsupervised learning} The technique used by unsupervised learning algorithms is to learn important features contained in the training data without any supervision, as the name implies \cite{deeplearningbook}. Unsupervised learning model attempts to automatically discover the underlying information by extracting and analyzing useful features. This type of learning does not require the training data to be labeled with the correct answer. In this matter embodies it's biggest advantage - withdrawal from the need of labeled data, which would require manual intervention and is not always easy to obtain. Although there is no distinct line between supervised and unsupervised concepts, we can say that the most widely used unsupervised learning algorithms are clustering, principal components analysis, anomaly detection or generative adversarial networks \cite{deeplearningbook, kim2019deep}.
+
+\section{Artificial neural networks}
+This section is primarily dedicated to deep neural networks, which are the core of our solution. However, in order to gain better perspective, we will first introduce some conceptual and historical context of artificial neural networks in general.
+Artificial neural network (ANN) is a computational model, which is a part of the broad artificial intelligence field. The word "neural" refers to the fact, that it was initially inspired by the way human brain functions. There are approximately $10^{11}$ neurons inside a human brain \cite{navrat2007umela}. Neuron is an elementary cell of the neural system, in which biochemical processes ensure the possibility of processing and sending neural signals. Neurons are interconnected by special joints called synopses, which enables them to communicate \cite{navrat2007umela}. Throughout the whole life, the importance and strength of synopses between neurons change, impacted by human's experience and learning. Artificial neural networks simulate the structure, as well as the behaviour of neurons. 
+\subsection*{Perceptron}
+\subsection{Deep neural networks}
 
 
-\section{Deep neural networks}
-- ambition to mimic the functioning of human brain
-
-\subsection{Optimization techniques}
+\subsubsection{Activation functions}
+\subsubsection{Optimization algorithms}
 An optimization technique is what powers the deep learning process. Stochastic gradient descent is probably the most popular algorithm used for optimization. It is based on the simpler Gradient descent algorithm.
 
-\subsection*{Gradient descent}
+\subsubsection*{Gradient descent}
 This algorithm uses the first derivative to find a global minimum of a function and thus provide optimization \cite{deeplearningbook}. Computing the derivative gives the answer to the question of how the model should adjust its parameters in order to improve its predictions.
+% \footnote{\label{myfootnote}Hello footnote}
+\subsubsection*{Stochastic gradient descent}
 
-\subsection*{Stochastic gradient descent}
-\begin{enumerate}[label={\arabic*.}]
-\vspace{-0.2cm}\item First Line
-\vspace{-0.2cm}\item Second Line 
-\end{enumerate}
+
+% \begin{enumerate}[label={\arabic*.}]
+% \vspace{-0.2cm}\item First Line
+% \vspace{-0.4cm}\item Second Line 
+% \end{enumerate}
+
 
 \subsection{Convolutional neural networks}
 
