@@ -17,37 +17,32 @@ Supervised learning  is the most frequently used form of machine learning \cite{
 \subsection{Unsupervised learning} The technique used by unsupervised learning algorithms is to learn important features contained in the training data without any supervision, as the name implies \cite{deeplearningbook}. Unsupervised learning model attempts to automatically discover the underlying information by extracting and analyzing useful features. This type of learning does not require the training data to be labeled with the correct answer. In this matter embodies it's biggest advantage - withdrawal from the need of labeled data, which would require manual intervention and is not always easy to obtain. Although there is no distinct line between supervised and unsupervised concepts, we can say that the most widely used unsupervised learning algorithms are clustering, principal components analysis, anomaly detection or generative adversarial networks \cite{deeplearningbook, kim2019deep}.
 
 \section{Artificial neural networks}
-This section is primarily dedicated to deep neural networks, which are the core of our solution. However, in order to gain better perspective, we will first introduce some conceptual and historical context of artificial neural networks in general.
-Artificial neural network (ANN) is a computational model, which is a part of the broad artificial intelligence field. The word "neural" refers to the fact, that it was initially inspired by the way human brain functions. There are approximately $10^{11}$ neurons inside a human brain \cite{navrat2007umela}. Neuron is an elementary cell of the neural system, in which biochemical processes ensure the possibility of processing and sending neural signals. Neurons are interconnected by special joints called synopses, which enables them to communicate \cite{navrat2007umela}. Throughout the whole life, the importance and strength of synopses between neurons change, impacted by human's experience and learning. Artificial neural networks simulate the structure, as well as the behaviour of neurons. 
+This section is primarily dedicated to deep neural networks, which are the core of our solution. However, in order to gain better perspective, we will first introduce some conceptual and historical context of artificial neural networks in general.\\
+Proposed in the 1940s, artificial neural network (ANN) is a computational model, which is a part of the broad artificial intelligence field. The word "neural" refers to the fact, that it was initially inspired by the way human brain functions. There are approximately $10^{11}$ neurons inside a human brain \cite{navrat2007umela}. Neuron is an elementary cell of the neural system, in which biochemical processes ensure the possibility of processing and sending neural signals. These signals are often referred to as activations. Neurons are interconnected by special joints called synopses, which enables them to communicate \cite{navrat2007umela}. Throughout the whole life, the importance and strength of synopses between neurons change, impacted by human's experience and learning. Artificial neural networks simulate the structure, as well as the behaviour of neurons. 
+
 \subsection*{Perceptron}
+Perceptron is the earliest model of a neural network, composed of a single neuron. The output \textit{o} of the perceptron is defined by the following formula:
+\begin{equation}
+    o = f(net) = f(\bar w \cdot \bar x) = f (\sum_{j=1}^{n+1} w_jx_j)
+\end{equation}
+where $f$ is the activation function, $\bar w$ is the weights vector, $\bar x$ is a vector of the input signals. This perceptron calculates with having $n+1$ inputs \cite{navrat2007umela}. The abilities of a single perceptron are quite constrained. It only manages to classify input data into two separate classes. With that said, perceptron provides a solution only to linearly separable problems \cite{navrat2007umela}.
+
+\subsection*{Multi-layer perceptron (MLP)}
 \subsection{Deep neural networks}
-
-
 \subsubsection{Activation functions}
+\subsubsection*{Rectified linear function}
+\subsubsection*{Sigmoid function}
 \subsubsection{Optimization algorithms}
 An optimization technique is what powers the deep learning process. Stochastic gradient descent is probably the most popular algorithm used for optimization. It is based on the simpler Gradient descent algorithm.
-
 \subsubsection*{Gradient descent}
 This algorithm uses the first derivative to find a global minimum of a function and thus provide optimization \cite{deeplearningbook}. Computing the derivative gives the answer to the question of how the model should adjust its parameters in order to improve its predictions.
-% \footnote{\label{myfootnote}Hello footnote}
+
 \subsubsection*{Stochastic gradient descent}
-
-
 % \begin{enumerate}[label={\arabic*.}]
 % \vspace{-0.2cm}\item First Line
 % \vspace{-0.4cm}\item Second Line 
 % \end{enumerate}
-
-
 \subsection{Convolutional neural networks}
-
-
 \section{Interpretability and explainability of neural networks}
-
 \subsection{Layer-Wise Relevance Propagation}
-
-
-
 \section{Challenges of deep learning}
-
-
