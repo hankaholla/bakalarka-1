@@ -31,10 +31,11 @@
 \usepackage{enumitem}
 
 \usepackage{graphicx}
-\usepackage{float}
-% \usepackage[belowskip=-15pt,aboveskip=0pt]{caption}
 
-\setlength{\intextsep}{1ex}
+%na vkladanie figures
+\usepackage{float}
+%nastavuje priestor pred a za figure
+\setlength{\intextsep}{2ex}
 
 \usepackage{longtable}
 \usepackage{setspace}
@@ -69,7 +70,11 @@
 \titlespacing*{\section}
 {0pt}{10pt}{0pt}
 \titlespacing*{\subsection}
-{0pt}{5pt}{0pt}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}
+{0pt}{2pt}{0pt}
+% \titlespacing*{\subsection}
+% {0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
 
 \titleformat{\chapter}%
   {\normalfont\bfseries\Huge}{\thechapter.}{10pt}{}
@@ -150,6 +155,6 @@
 \usepackage{footnote}
 \makesavenoteenv{figure}
 
-\setlength{\abovedisplayskip}{3pt}
-\setlength{\belowdisplayskip}{3pt}
+% \setlength{\abovedisplayskip}{3pt}
+% \setlength{\belowdisplayskip}{3pt}
 

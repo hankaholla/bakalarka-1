@@ -18,27 +18,35 @@ Supervised learning  is the most frequently used form of machine learning \cite{
 
 \section{Artificial neural networks}
 This section is primarily dedicated to deep neural networks, which are the core of our solution. However, in order to gain better perspective, we will first introduce some conceptual and historical context of artificial neural networks in general.\\
-Proposed in the 1940s, artificial neural network (ANN) is a computational model, which is a part of the broad artificial intelligence field. The word "neural" refers to the fact, that it was initially inspired by the way human brain functions. There are approximately $10^{11}$ neurons inside a human brain \cite{navrat2007umela}. Neuron is an elementary cell of the neural system, in which biochemical processes ensure the possibility of processing and sending neural signals. These signals are often referred to as activations. Neurons are interconnected by special joints called synopses, which enables them to communicate \cite{navrat2007umela}. Throughout the whole life, the importance and strength of synopses between neurons change, impacted by human's experience and learning. Artificial neural networks simulate the structure, as well as the behaviour of neurons. 
-
-\subsection*{Perceptron}
+Proposed in the 1940s, artificial neural network (ANN) is a computational model, which is a part of the broad artificial intelligence field. The word "neural" refers to the fact, that it was initially inspired by the way human brain functions. There are approximately $10^{11}$ neurons inside a human brain \cite{navrat2007umela}. Neuron is an elementary cell of the neural system, in which biochemical processes ensure the possibility of processing and sending neural signals. These signals are often referred to as activations. Neurons are interconnected by special joints called synopses, which enables them to communicate \cite{navrat2007umela}. Throughout the whole life, the importance and strength of synopses between neurons change, impacted by human's experience and learning. Artificial neural networks simulate the structure, as well as the behaviour of neurons. If we were to apply the biological terms to an ANN, synopses would be called weights
+\subsection*{Perceptron} 
 Perceptron is the earliest model of a neural network, composed of a single neuron. The output \textit{o} of the perceptron is defined by the following formula:
 \begin{equation}
     o = f(net) = f(\bar w \cdot \bar x) = f (\sum_{j=1}^{n+1} w_jx_j)
 \end{equation}
 where $f$ is the activation function, $\bar w$ is the weights vector, $\bar x$ is a vector of the input signals. This perceptron calculates with having $n+1$ inputs \cite{navrat2007umela}. The abilities of a single perceptron are quite constrained. It only manages to classify input data into two separate classes. With that said, perceptron provides a solution only to linearly separable problems \cite{navrat2007umela}.
 \subsection*{Feedforward neural networks}
-Most real-world problems do not have linear character and can not be tackled with the simple perceptron model. A solution to this problem was introduced in 1980s when feedforward neural networks with the backpropagation algorithm were proposed \cite{navrat2007umela}. Multiple neurons arranged in layers is what constructs a feedforward neural network. In this type of network, the information is passed only in the forward direction and the connections between neurons form a directed acyclic graph. In other words, each neuron from layer \textit{l} sends signals to each neuron in layer \textit{l+1}. The very first (leftmost) layer in a network is called input layer and the last (rightmost) is called output layer. In between, one middle layer, often also called "hidden" layer, is situated. \begin{figure}[!ht]
+Most real-world problems do not have linear character and can not be tackled with the simple perceptron model. A solution to this problem was introduced in 1980s when feedforward neural networks with the backpropagation algorithm were proposed \cite{navrat2007umela}. Multiple neurons (perceptrons) arranged in layers is what constructs a feedforward neural network. In this type of network, the information is passed only in the forward direction and the connections between neurons form a directed acyclic graph. In other words, each neuron from layer \textit{l} sends signals to each neuron in layer \textit{l+1}. The very first (leftmost) layer in a network is called input layer and the last (rightmost) is called output layer. In between, one middle layer, often also called "hidden" layer, is situated. 
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=8cm]{assets/images/FFN}
+\includegraphics[width=7cm]{assets/images/FFN}
 \caption{Architecture of a feedforward neural network
 \label{fig:FFN}}
 \end{figure}
-\\At each layer a following computation is performed:
+\\At each layer a calculation is performed, which involves computing a weighted sum of the neuron's input values, followed by a functional operation. Performing this operation equals to applying a nonlinear activation function to the previously computed weighted sum \cite{tutorialIEEE}. The following formula is used at each layer:
 \begin{equation}
-    y_{j}=f\left({\sum \limits _{i=1}^{n} W_{ij} \times x_{i} + b}\right)
+    y_{j}=f\left({\sum \limits _{i=1}^{n} w_{ij} \times x_{i} + b}\right)
 \end{equation}
-
+where $y_j$ is the input value for j-th neuron in corresponding - in this case the middle - layer, $w$ are the weights, $x$ is the value of a neuron from previous layer, $b$ is the bias term and $f$ is the activation function, same as with perceptron mentioned earlier \cite{tutorialIEEE}. The number of neurons in the previous layer is in this case $n$.
 \subsection{Deep neural networks}
+In the deep networks domain, deep neural networks introduce the use of deep learning on a neural network model.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=12cm]{assets/images/DNN}
+\caption{Architecture of a deep neural network with two hidden layers \footfullcite{chapterBookDL}
+\label{fig:DNN}}
+\end{figure}
+
 \subsubsection{Activation functions}
 \subsubsection*{Rectified linear function}
 \subsubsection*{Sigmoid function}
