@@ -26,13 +26,23 @@ Perceptron is the earliest model of a neural network, composed of a single neuro
     o = f(net) = f(\bar w \cdot \bar x) = f (\sum_{j=1}^{n+1} w_jx_j)
 \end{equation}
 where $f$ is the activation function, $\bar w$ is the weights vector, $\bar x$ is a vector of the input signals. This perceptron calculates with having $n+1$ inputs \cite{navrat2007umela}. The abilities of a single perceptron are quite constrained. It only manages to classify input data into two separate classes. With that said, perceptron provides a solution only to linearly separable problems \cite{navrat2007umela}.
+\subsection*{Feedforward neural networks}
+Most real-world problems do not have linear character and can not be tackled with the simple perceptron model. A solution to this problem was introduced in 1980s when feedforward neural networks with the backpropagation algorithm were proposed \cite{navrat2007umela}. Multiple neurons arranged in layers is what constructs a feedforward neural network. In this type of network, the information is passed only in the forward direction and the connections between neurons form a directed acyclic graph. In other words, each neuron from layer \textit{l} sends signals to each neuron in layer \textit{l+1}. The very first (leftmost) layer in a network is called input layer and the last (rightmost) is called output layer. In between, one middle layer, often also called "hidden" layer, is situated. \begin{figure}[!ht]
+\centering
+\includegraphics[width=8cm]{assets/images/FFN}
+\caption{Architecture of a feedforward neural network
+\label{fig:FFN}}
+\end{figure}
+\\At each layer a following computation is performed:
+\begin{equation}
+    y_{j}=f\left({\sum \limits _{i=1}^{n} W_{ij} \times x_{i} + b}\right)
+\end{equation}
 
-\subsection*{Multi-layer perceptron (MLP)}
 \subsection{Deep neural networks}
 \subsubsection{Activation functions}
 \subsubsection*{Rectified linear function}
 \subsubsection*{Sigmoid function}
-\subsubsection{Optimization algorithms}
+\subsubsection{Gradient-based learning}
 An optimization technique is what powers the deep learning process. Stochastic gradient descent is probably the most popular algorithm used for optimization. It is based on the simpler Gradient descent algorithm.
 \subsubsection*{Gradient descent}
 This algorithm uses the first derivative to find a global minimum of a function and thus provide optimization \cite{deeplearningbook}. Computing the derivative gives the answer to the question of how the model should adjust its parameters in order to improve its predictions.
@@ -43,6 +53,9 @@ This algorithm uses the first derivative to find a global minimum of a function 
 % \vspace{-0.4cm}\item Second Line 
 % \end{enumerate}
 \subsection{Convolutional neural networks}
+% https://downloads.hindawi.com/journals/cin/2018/7068349.pdf
+
+https://www2.cs.duke.edu/courses/spring19/compsci527/papers/Lecun.pdf
 \section{Interpretability and explainability of neural networks}
 \subsection{Layer-Wise Relevance Propagation}
 \section{Challenges of deep learning}
