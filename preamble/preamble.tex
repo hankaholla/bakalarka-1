@@ -72,7 +72,7 @@
 \titlespacing*{\subsection}
 {0pt}{0pt}{0pt}
 \titlespacing*{\subsubsection}
-{0pt}{2pt}{0pt}
+{0pt}{-10pt}{0pt}
 % \titlespacing*{\subsection}
 % {0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
 
@@ -155,8 +155,16 @@
 \usepackage{footnote}
 \makesavenoteenv{figure}
 
-% \setlength{\abovedisplayskip}{3pt}
-% \setlength{\belowdisplayskip}{3pt}
+% \setlength{\abovedisplayskip}{-3pt}
+% \setlength{\belowdisplayskip}{-3pt}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \normalsize
+    \setlength\abovedisplayskip{10pt}
+    \setlength\belowdisplayskip{10pt}
+    \setlength\abovedisplayshortskip{10pt}
+    \setlength\belowdisplayshortskip{10pt}
+}
 
 %na kreslenie grafov
 \usepackage{tikz}

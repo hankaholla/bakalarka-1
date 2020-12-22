@@ -42,19 +42,13 @@ where $y_j$ is the input value for j-th neuron in corresponding - in this case t
 In the neural networks domain, deep neural networks (DNN) introduce the use of deep learning in a neural network model. This type of neural network differs from the one introduced in previous section in having more than one hidden layer. 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=12cm]{assets/images/DNN}
+\includegraphics[width=12cm]{assets/images/DNN1}
 \caption{Architecture of a deep neural network with two hidden layers \footfullcite{chapterBookDL}
 \label{fig:DNN}}
 \end{figure}
 
 \subsubsection{Activation functions}
 For deep neural networks to learn to solve real problem, it is important to introduce nonlinearity into the computational process during training \cite{tutorialIEEE}. This requirement is fulfilled by activation function. There are three historically most frequently used activation functions, each of which is advantageous for a different task.
-\subsubsection*{Rectified linear function}
-Rectified linear or ReLU is the most popular choice for an activation function in the world right now \cite{tutorialIEEE}. It is defined as:
-\begin{equation}
-     f(x) = max\{0, x\}
-\end{equation}
-where we can see, that this function outputs zero if $x\leq0$, otherwise the output is $x$ \cite{deeplearningbook}. 
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
@@ -67,23 +61,37 @@ where we can see, that this function outputs zero if $x\leq0$, otherwise the out
     xlabel={$x$},
     ylabel={$y$},
     legend pos=north west]
-\addplot [domain=-5.5:5.5, samples=100, thick, blue] {max(0, x)};
+\addplot [domain=-5.5:5.5, samples=100, thick, orange] {max(0, x)};
 \addplot [domain=-9.5:9.5, samples=100,
-          thick, green] {1/(1+exp(-x)};
+          thick, teal] {1/(1+exp(-x)};
 \addplot [domain=-9.5:9.5, samples=100,
-     thick, red] {(exp(x) - exp(-x))/(exp(x) + exp(-x))};
+     thick, purple] {(exp(x) - exp(-x))/(exp(x) + exp(-x))};
 \legend{ReLU, sigmoid, tanh}
 \end{axis}
 \end{tikzpicture}
 \caption{Activation functions graph
 \label{fig:activationFunctions}}
 \end{figure}
+\subsubsection*{Rectified linear function}
+Rectified linear or ReLU is the activation function of choice in modern neural networks \cite{tutorialIEEE}. It is defined as:
+\begin{equation}
+     f(x) = max\{0, x\}
+\end{equation}
+where we can see, that this function outputs zero if $x\leq0$, otherwise the output is $x$ \cite{deeplearningbook}. However, the fact that it automatically maps all negative values to zero results in decreasing the ability of the DNN to learn properly. Due to this issue, several variations of ReLU were proposed, such as leaky ReLU or parametric ReLU \cite{tutorialIEEE}.
 
 \subsubsection*{Sigmoid function}
-
+The sigmoid function takes an input $x$ and suppresses it to a value from range $[0,1]$, as can be seen in its notation:
+\begin{equation}
+    f(x) = \sigma(x)=\frac{1}{1+e^{-x}}
+\end{equation}
+Taking into account its output range, sigmoid is especially beneficial to models, which predict a probability.
 
 \subsubsection*{Hyperbolic tangent function}
-
+The hyperbolic tangent function is similar to sigmoid, however its ouput range is wider. 
+\begin{equation}
+    f(x) = \tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}
+\end{equation}
+From its notation it is liquet that this function maps the input $x$ into a value from range $[-1,1]$
 \subsubsection{Back-propagation algorithm}
 An optimization technique is what powers the deep learning process. Stochastic gradient descent is probably the most popular algorithm used for optimization. It is based on the simpler Gradient descent algorithm.
 \subsubsection*{Gradient descent}
