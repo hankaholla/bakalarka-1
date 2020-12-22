@@ -3,6 +3,19 @@ In this chapter we are going to present a brief overview of medical imaging. Fir
 
 Medical imaging, also referred to as radiology, is the medical field which includes the production, as well as analysis and processing of medical image data \cite{diagnostic50years}. Medical professionals use methods of medical imaging, such as computed tomography (CT), magnetic resonance (MRI) or ultrasound, to depict various body parts for diagnostic purposes. With the arrival of digital era it became possible to scan and store significant amounts of medical images digitally. Over the last few decades, researchers have implemented systems to automate the analysis of medical images and it has become one of the main research subjects in the medical imaging field. 
 
+\section{Computed tomography}
+Neuroimaging is crucial when aiming for an exact diagnosis of intracranial hemorrhage.  Taking into account its wide availability and non-invasive technique, computed tomography (CT) is most commonly used in detection of intracranial hemorrhage these days \cite{imagingICH}. Even though magnetic resonance imaging (MRI) has been proven to be more sensitive, CT is able to provide much faster results, which is critical when it comes to obtaining early assessment of the presence and extent of the bleeding \cite{imagingAfterBrainInjury}. The main principle of non-contrast computed tomography imaging resides in the fact, that different tissues of the human body can absorb different amounts of X-ray beams, which is referred to as tissue density \cite{principlesOfCT}. The absorbed X-ray is being mapped into Hounsfield Units (HU). Resulting scans are formed from units of space within the patient's body called voxels. These units contain a three-dimensional (3D) information about the value of tissue density. Resulting 3D scans are studied using a method called windowing, which converts selected range of Hounsfield Units (HU) into values of grayscale (range between 0 and 255).  As a result, a two-dimensional cross sectional "slice" can be extracted from the 3D volume. The selected range is set by two different parameters: window width (WW) and window level (WL). Windowing enables radiologists to study different features and tissues by increasing the contrast, thus bringing forward the tissue of interest \cite{windowClassBiomArt}. The original CT pixel values, which are not in the selected range, are displayed either as black or white, as shown in Figure 3.1 .
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=15cm]{assets/images/windowingHU}
+\par\end{centering}
+\caption{Windowing of CT scans
+\label{fig:windowing} \footfullcite{windowClassBiomArt}}
+\end{figure}
+
+In detection of intracranial hemorrhage from head CT scans, blood and brain windows are the standard choice. Right after the appearance of hemorrhage, the area of the bleeding shows density values of 60 to 80 Hounsfield units (HU), and as it matures, the value increases up to 100 HU  \cite{principlesOfCT}, which can be visible in the scan slice with a correct setting of window width and window length.
+
 \section{Computer-aided diagnosis}
 Initially used approaches in the 1960s resided in construction of rule-based systems, which were able to solve only specific tasks \cite{surveyOnImageing}. These automated computer diagnosis systems brought the very concept of automated diagnostics. It was assumed, that they could potentially completely replace radiologists, believing that computers can achieve better performance at specific tasks, lacking the human-like disposition to making errors. However, with this goal, meeting the expectations on specificity and sensitivity of the systems was simply unattainable, since it required huge amounts of computational power, which was hard to ensure at that time. Thus, in the 1980s the direction of the medical imaging evolution was changed and another approach was presented - computer aided diagnosis (CAD) \cite{diagnostic50years}. The essence of CAD is to improve diagnostic accuracy by assisting radiologists and act as a "second opinion" \cite{surveyOnImageing, CADinmedicalImaging} to their own medical opinion. 
 The progress of technology and easier access to high-performance hardware components such as central processing units (CPU) and graphics processing units (GPU) at the end of 1990s resulted in supervised machine learning systems becoming very popular in CAD \cite{surveyOnImageing}. This was viable also due to increasing amount of available medical data (big data), making it possible to train such systems. It was a big step, shifting from completely human designed systems, to ones based on manual feature extraction and then trained automatically by computers. Feature extraction lies at the heart of a successful medical image analysis, therefore the next course of action was to apply machine learning in a self-taught manner for this task as well. We provide more detailed review on deep learning in chapter 4.
@@ -18,22 +31,13 @@ The progress of technology and easier access to high-performance hardware compon
 % https://iopscience.iop.org/article/10.1088/0031-9155/51/13/R02/meta
 
 
-\section{Computed tomography}
-Neuroimaging is crucial when aiming for an exact diagnosis of intracranial hemorrhage.  Taking into account its wide availability and non-invasive technique, computed tomography (CT) is most commonly used in detection of intracranial hemorrhage these days \cite{imagingICH}. Even though magnetic resonance imaging (MRI) has been proven to be more sensitive, CT is able to provide much faster results, which is critical when it comes to obtaining early assessment of the presence and extent of the bleeding \cite{imagingAfterBrainInjury}. The main principle of non-contrast computed tomography imaging resides in the fact, that different tissues of the human body can absorb different amounts of X-ray beams, which is referred to as tissue density \cite{principlesOfCT}. The absorbed X-ray is being mapped into Hounsfield Units (HU). Resulting scans are formed from units of space within the patient's body called voxels. These units contain a three-dimensional (3D) information about the value of tissue density. Resulting 3D scans are studied using a method called windowing, which converts selected range of Hounsfield Units (HU) into values of grayscale (range between 0 and 255).  As a result, a two-dimensional cross sectional "slice" can be extracted from the 3D volume. The selected range is set by two different parameters: window width (WW) and window level (WL). Windowing enables radiologists to study different features and tissues by increasing the contrast, thus bringing forward the tissue of interest \cite{windowClassBiomArt}. The original CT pixel values, which are not in the selected range, are displayed either as black or white, as shown in Figure 3.1 .
-
-\begin{figure}[h]
-\begin{centering}
-\includegraphics[width=15cm]{assets/images/windowingHU}
-\par\end{centering}
-\caption{Windowing of CT scans
-\label{fig:windowing} \footfullcite{windowClassBiomArt}}
-\end{figure}
-
-In detection of intracranial hemorrhage from head CT scans, blood and brain windows are the standard choice. Right after the appearance of hemorrhage, the area of the bleeding shows density values of 60 to 80 Hounsfield units (HU), and as it matures, the value increases up to 100 HU  \cite{principlesOfCT}, which can be visible in the scan slice with a correct setting of window width and window length.
 
 \section{Deep learning in medical imaging}
 % https://med.stanford.edu/content/dam/sm/dbds/documents/biostats-workshop/s41591-018-0316-z.pdf
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945006/#b1-ns-1938396-198
-\subsection{Detection}
-\subsection{Classification}
-\subsection{Segmentation}
+%https://www.sciencedirect.com/science/article/pii/S1361841517301135#sec0016
+In the very field computer vision have been some of the most remarkable successes in deep learning. Medical imaging can benefit greatly from the powerful tools that deep learning has to offer. Here we present three different areas of application of deep learning in medical imaging tasks.
+\subsection{Image classification}
+On of the elementary responsibilities of a radiologist is to determine a correct diagnosis based on medical images of a patient. This task includes multiple subtasks, such as conclude the presence of a disorder or classification of possible findings contained in the images. Methods based on Convolutional neural networks (CNNs) have shown to be successful in this task and manage to achieve nearly human accuracy \cite{deeplearningHealthcare}. Since it requires significant amounts of data to properly train a CNN, an approach of transfer learning has demonstrated substantional performance in tasks of medical imaging. Transfer learning intorduces the idea of using a CNN, which has been pre-trained on natural image dataset (such as widely popular ImageNet dataset), and fine-tuning it to make classification tasks more effective \cite{IEEEtransfer}.
+\subsection{Object detection}
+\subsection{Image segmentation}
