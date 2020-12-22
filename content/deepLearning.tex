@@ -37,9 +37,9 @@ Most real-world problems do not have linear character and can not be tackled wit
 \begin{equation}
     y_{j}=f\left({\sum \limits _{i=1}^{n} w_{ij} \times x_{i} + b}\right)
 \end{equation}
-where $y_j$ is the input value for j-th neuron in corresponding - in this case the middle - layer, $w$ are the weights, $x$ is the value of a neuron from previous layer, $b$ is the bias term and $f$ is the activation function, same as with perceptron mentioned earlier \cite{tutorialIEEE}. The number of neurons in the previous layer is in this case $n$.
+where $y_j$ is the input value for j-th neuron in corresponding - in this case the middle - layer, $w$ are the weights, $x$ is the value of a neuron from previous layer, $b$ is the bias term and $f$ is the activation function, same as with perceptron mentioned earlier \cite{tutorialIEEE}. The main purpose of bias is to assign each neuron in a network a constant, which would be adjustable by training. The variable $n$ refers to the number of neurons in the previous (input) layer.
 \subsection{Deep neural networks}
-In the deep networks domain, deep neural networks introduce the use of deep learning on a neural network model.
+In the neural networks domain, deep neural networks (DNN) introduce the use of deep learning in a neural network model. This type of neural network differs from the one introduced in previous section in having more than one hidden layer. 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=12cm]{assets/images/DNN}
@@ -48,9 +48,43 @@ In the deep networks domain, deep neural networks introduce the use of deep lear
 \end{figure}
 
 \subsubsection{Activation functions}
+For deep neural networks to learn to solve real problem, it is important to introduce nonlinearity into the computational process during training \cite{tutorialIEEE}. This requirement is fulfilled by activation function. There are three historically most frequently used activation functions, each of which is advantageous for a different task.
 \subsubsection*{Rectified linear function}
+Rectified linear or ReLU is the most popular choice for an activation function in the world right now \cite{tutorialIEEE}. It is defined as:
+\begin{equation}
+     f(x) = max\{0, x\}
+\end{equation}
+where we can see, that this function outputs zero if $x\leq0$, otherwise the output is $x$ \cite{deeplearningbook}. 
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xmax=6,
+    xmin=-6,
+    ymin=-5,
+    ymax=5.05,
+    xlabel={$x$},
+    ylabel={$y$},
+    legend pos=north west]
+\addplot [domain=-5.5:5.5, samples=100, thick, blue] {max(0, x)};
+\addplot [domain=-9.5:9.5, samples=100,
+          thick, green] {1/(1+exp(-x)};
+\addplot [domain=-9.5:9.5, samples=100,
+     thick, red] {(exp(x) - exp(-x))/(exp(x) + exp(-x))};
+\legend{ReLU, sigmoid, tanh}
+\end{axis}
+\end{tikzpicture}
+\caption{Activation functions graph
+\label{fig:activationFunctions}}
+\end{figure}
+
 \subsubsection*{Sigmoid function}
-\subsubsection{Gradient-based learning}
+
+
+\subsubsection*{Hyperbolic tangent function}
+
+\subsubsection{Back-propagation algorithm}
 An optimization technique is what powers the deep learning process. Stochastic gradient descent is probably the most popular algorithm used for optimization. It is based on the simpler Gradient descent algorithm.
 \subsubsection*{Gradient descent}
 This algorithm uses the first derivative to find a global minimum of a function and thus provide optimization \cite{deeplearningbook}. Computing the derivative gives the answer to the question of how the model should adjust its parameters in order to improve its predictions.
@@ -66,4 +100,4 @@ This algorithm uses the first derivative to find a global minimum of a function 
 https://www2.cs.duke.edu/courses/spring19/compsci527/papers/Lecun.pdf
 \section{Interpretability and explainability of neural networks}
 \subsection{Layer-Wise Relevance Propagation}
-\section{Challenges of deep learning}
+% \section{Challenges of deep learning}
