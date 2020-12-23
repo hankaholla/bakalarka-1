@@ -97,18 +97,40 @@ An optimization technique is what powers the deep learning process. Stochastic g
 \subsubsection*{Gradient descent}
 This algorithm uses the first derivative to find a global minimum of a function and thus provide optimization \cite{deeplearningbook}. Computing the derivative gives the answer to the question of how the model should adjust its parameters in order to improve its predictions.
 
-
-% https://link.springer.com/chapter/10.1007/978-981-15-8884-6_3#Sec7
-% https://ieeexplore.ieee.org/abstract/document/8114708?casa_token=x6f84bgpjWMAAAAA:Fd-1XNtU9Iaf02WRMScnawZni9-DIHlLTrfgBokLDcyIojGAiEF30EBEAuA9g5WT2j4MEYCC_vI
 \subsubsection*{Stochastic gradient descent}
 % \begin{enumerate}[label={\arabic*.}]
 % \vspace{-0.2cm}\item First Line
 % \vspace{-0.4cm}\item Second Line 
 % \end{enumerate}
-\subsection{Convolutional neural networks}
-% https://downloads.hindawi.com/journals/cin/2018/7068349.pdf
 
-https://www2.cs.duke.edu/courses/spring19/compsci527/papers/Lecun.pdf
+\subsection{Convolutional neural networks}
+Convolutional neural network (CNN) is a special kind of feedforward neural network, where the convolution operation is used instead of classical matrix multiplication \cite{deeplearningbook}. It was introduced as a method of efficiently handling grid-like data such as images and videos, as it is able to successfully capture the spatial and contextual dependencies within these kinds of 
+multi-dimensional data. CNNs have been initially inspired by the functioning of primary visual cortex, located in the bottom back area of the brain \cite{deeplearningbook}.
+\subsubsection{Layer architecture}
+Convolutional neural network comprises three main different kinds of layers, each of which performs a different role: convolutional layer, pooling layer and fully connected layer.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=15cm]{assets/images/CNN}
+\caption{Example of a convolutional neural network architecture \footfullcite{CNNpicture}
+\label{fig:CNN}}
+\end{figure}
+
+\subsubsection*{Convolutional layer}
+Convolutional layers are the most important building blocks of a CNN, since they perform the convolution operation, as their name implies. The element accountable for the convolution operation is called a kernel or filter, gradually which slides over the input image. To carry out a convolution basically means to compute matrix multiplication between kernel and the part of the input image, which is currently overlapped by the kernel. As a result of this operation, an output feature map is generated \cite{greekDeepLearning}. The objective of this layer is to detect associations between features passed from the previous layer \cite{lecundeeplearning}. After each convolution layer an activation function, such as ReLU, is applied to introduce nonlinearity.
+
+\subsubsection*{Pooling layer}
+A convolutional layer is typically followed by pooling layer. We use pooling to reduce the spatial dimensions through down-sampling of the feature maps. It also enables the network to be invariant to small translations \cite{deeplearningbook}. Different strategies of pooling can be used, namely max pooling or average pooling, returning either the maximum value or the average value from the part of the feature map covered by the kernel respectively \cite{lecundeeplearning}.
+\subsubsection*{Fully connected layer}
+After several stagies of convolutional a pooling layers, fully connected layer is the one which performs the high-level feature reasoning. In other words, this layer combines features detected in previous layers and thus learns the nonlinear representations in data \cite{greekDeepLearning}. In order to present a 1D vector as the final output, the 2D feature maps are flattened. This flattened vector is then either classified using the softmax classification technique or used for further processing.
+\subsubsection{Main concepts}
+CNNs greatly benefit from three main concepts: sparse connectivity, equivariant representations and shared parameters. We will discuss each of these separately.
+\subsubsection*{Sparse connectivity}
+The main motive of sparse connectivity (also sometimes referred to as sparse weights) is the absence of the traditional scheme of connecting each neuron from one layer to each neuron in the previous layer, as it was introduced in traditional feedforward networks \cite{chapterBookDL}. A neuron in convolutional network only interacts with a few other neurons, which can significantly reduce memory requirements as well as improve computational efficiency \cite{deeplearningbook}. In CNN this concept is secured by using a kernel (filter) of a smaller size compared to the size of the input data. Even though the connections in CNN are sparse, neurons in deeper layers are able to interact with input values indirectly. Moreover, deeper situated neurons have larger receptive field compared to neurons in shallow layers, which empowers the network to "efficiently describe complicated interactions between many variables by constructing such interactions from simple building blocks that each describe only sparse interactions" \cite{deeplearningbook}.
+\subsubsection*{Shared parameters}
+Sparse connectivity closely relates with another concept called shared parameters. It refers to reusing the same set of weight values when calculating the output for a set of neurons \cite{greekDeepLearning}. From the learning point of view, using shared parameters equals to learning only one set of parameters, instead of a separate one for every location of the input \cite{deeplearningbook}. The neurons in a layer that share the same set of weights form a plane. Each plane is then responsible for learning a specific feature \cite{greekDeepLearning}. This concept can reduce memory consumption as well.
+\subsubsection*{Equivariant representations}
+The last concept, which we will introduce, is equivariant representations, or equivariance in translation. It ensures, that if an input image is changed by any action, the output, generated by convolution operation, changes equivalently to the distortion \cite{deeplearningbook}. This is caused by previously mentioned concept of parameter sharing. Common mathematical definition for equivariance to translation is $f(g(I)) = g(f(I))$, where $I$ represents the input image, $g$ stands for the function executing a distortion and $f$ is the convolution operation.
+
 \section{Interpretability and explainability of neural networks}
 \subsection{Layer-Wise Relevance Propagation}
 % \section{Challenges of deep learning}
