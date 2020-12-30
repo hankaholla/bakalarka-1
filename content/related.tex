@@ -9,7 +9,7 @@ The machine learning algorithm implemented in this study was a three-dimensional
 \begin{centering}
 \includegraphics[width=16cm]{assets/images/RW1-net-arch.png}
 \par\end{centering}
-\caption{Model architecture from \footfullcite{relatedWork1} \label{fig:rw1}}
+\caption[Architecture of the implemented model]{Architecture of the implemented model \footfullcite{relatedWork1} \label{fig:rw1}}
 \end{figure}
 \subsection*{Clinical implementation} 
 Over a three-month period, the trained model had been implemented at a clinic in Pennsylvania, USA to assist with prioritization of radiology work lists. During this implementation phase, 347 head CT studies were processed in real time. For each study, which was fed to the algorithm, a binary output was produced, representing positive or negative presence of ICH. Studies marked as positive were assigned higher priority and moved up the radiology work list. Out of these 94 studies, 60 were determined by a interpreting radiologist as true positive, which gave the model positive predictive value of 64\%. were consequently. With this approach, average diagnostic time was shortened from 8,5 hours to just 19 minutes, which is acceleration of 96\%. The algorithm showed accuracy of 84\% sensitivity of 70\%  and specificity of 87\%. The area under the curve of the model, was established to be 0.846.
@@ -27,7 +27,7 @@ During the first stage, a two-type classification was conducted, which predicted
 \begin{centering}
 \includegraphics[width=15cm]{assets/images/RW2.jpg}
 \par\end{centering}
-\caption{Heatmpas generated with the Grad-CAM \footfullcite{relatedWork2} \label{fig:rw2}}
+\caption[Heatmpas generated with the Grad-CAM]{Heatmpas generated with the Grad-CAM \footfullcite{relatedWork2} \label{fig:rw2}}
 \end{figure}
 \\
 \\
