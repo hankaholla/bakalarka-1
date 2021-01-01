@@ -11,6 +11,14 @@
 \documentclass[\myFontSize,a4paper,twoside,openright,slovak]{book}
 \include{preamble/preamble}
 
+%tabulka skratiek
+% \usepackage[nopostdot,toc,acronym,nomain,nonumberlist]{glossaries}
+% \makeglossaries
+% \setacronymstyle{long-short}
+
+% \loadglsentries[acronym]{preamble/myglossaries}
+
+
 \begin{document}
 
 % Minted
@@ -29,12 +37,16 @@
 % Table of contents
 \tableofcontents{}
 
+\listoffigures
 
+\newpage{}\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+% \mbox{}
+% \newpage
 
-% List of listings
-\listoffigures\newpage{}
-%\renewcommand\listoflistingscaption{List of Listings}
-%\listoflistings\newpage{}
+% \printglossary[title={Abbreviations},type=acronym,style=long]
+
 
 % References segment
 \begin{refsegment}
