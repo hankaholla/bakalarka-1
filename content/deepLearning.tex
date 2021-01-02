@@ -48,8 +48,7 @@ In the neural networks domain, deep neural networks (DNN) introduce the use of d
 \end{figure}
 
 \subsubsection{Activation functions}
-For deep neural networks to learn to solve real problem, it is important to introduce nonlinearity into the computational process during training \cite{tutorialIEEE}. This requirement is fulfilled by activation function. There are three historically most frequently used activation functions, each of which is advantageous for a different task.
-\begin{figure}[!ht]
+For deep neural networks to learn to solve real problem, it is important to introduce nonlinearity into the computational process during training \cite{tutorialIEEE}. This requirement is fulfilled by activation function. There are three historically most frequently used activation functions, each of which is advantageous for a different task. \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
@@ -72,20 +71,20 @@ For deep neural networks to learn to solve real problem, it is important to intr
 \caption{Activation functions graph
 \label{fig:activationFunctions}}
 \end{figure}
+
+\vspace{0.8cm}
 \subsubsection*{Rectified linear function}
 Rectified linear or ReLU is the activation function of choice in modern neural networks \cite{tutorialIEEE}. It is defined as:
 \begin{equation}
      f(x) = max\{0, x\}
 \end{equation}
 where we can see, that this function outputs zero if $x\leq0$, otherwise the output is $x$ \cite{deeplearningbook}. However, the fact that it automatically maps all negative values to zero results in decreasing the ability of the DNN to learn properly. Due to this issue, several variations of ReLU were proposed, such as leaky ReLU or parametric ReLU \cite{tutorialIEEE}.
-
 \subsubsection*{Sigmoid function}
 The sigmoid function takes an input $x$ and suppresses it to a value from range $[0,1]$, as can be seen in its notation:
 \begin{equation}
     f(x) = \sigma(x)=\frac{1}{1+e^{-x}}
 \end{equation}
 Taking into account its output range, sigmoid is especially beneficial to models, which predict a probability.
-
 \subsubsection*{Hyperbolic tangent function}
 The hyperbolic tangent function is similar to sigmoid, however its ouput range is wider. 
 \begin{equation}
